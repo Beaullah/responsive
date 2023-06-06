@@ -1,5 +1,12 @@
 import React from "react";
 import model1 from "./imgaes/model1.jpg";
+import Model2 from "./imgaes/Model2.jpg";
+import Model3 from "./imgaes/Model3.jpg";
+import Model4 from "./imgaes/Model4.jpg";
+import Model5 from "./imgaes/Model5.jpg";
+import Model6 from "./imgaes/model6.jpg";
+import rat from "./imgaes/rat.jpg";
+import val from "./imgaes/val.jpg";
 const Home = () => {
   const model = {
     textAlign: "Center",
@@ -35,6 +42,33 @@ const Home = () => {
             <input></input>
             <button>Comment</button>
           </form>
+        </div>
+      </div>
+      <div className="model-pics">
+        <div>
+          {" "}
+          <img src={Model2} />
+        </div>
+        <div>
+          <img src={Model3} />
+        </div>
+        <div>
+          {" "}
+          <img src={Model4} />
+        </div>
+        <div>
+          <img src={Model5} />
+        </div>
+        <div>
+          <img src={Model6} />
+        </div>
+        <div>
+          {" "}
+          <img src={rat} />
+        </div>
+        <div>
+          {" "}
+          <img src={val} />
         </div>
       </div>
     </div>

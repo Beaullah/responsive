@@ -44,6 +44,22 @@ li {
 .post-input p {
   overflow: hidden;
 }
+.model-pics {
+  padding: 20px;
+  background-color: white;
+  display: flex;
+  justify-content: space-around;
+  box-shadow: 50px;
+}
+.model-pics img {
+  height: 400px;
+  width: 400px;
+  border-radius: 20px;
+}
+.model-pics:hover {
+  background-color: brown;
+}
+
 @media (min-width: 375px) and (max-width: 792px) {
   .navBar {
     display: block;
@@ -69,6 +85,13 @@ li {
   .post-input {
     margin: 0 auto;
     justify-content: center;
+  }
+  .model-pics {
+    display: block;
+  }
+  .model-pics img {
+    width: 100%;
+    height: auto;
   }
 }
 
