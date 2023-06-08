@@ -1,18 +1,18 @@
 import React from "react";
-
+import model1 from "./imgaes/model1.jpg";
 const Home = () => {
   const model = {
     textAlign: "Center",
   };
   const Comments = {
     com: "She is beautiful",
-  }; 
+  };
   return (
     <div style={{ backgroundColor: "pink" }}>
       <h3 style={model}>Daily Models</h3>
       <div className="post">
         <div className="post-image">
-          <img src="model1.jpg" height="500px" width="100%" />
+          <img src={model1} height="500px" width="100%" />
         </div>
         <div className="post-input">
           <h3 style={model}> Aba</h3>
