@@ -50,14 +50,20 @@ li {
   display: flex;
   justify-content: space-around;
   box-shadow: 50px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
 }
 .model-pics img {
   height: 400px;
   width: 400px;
   border-radius: 20px;
 }
-.model-pics:hover {
-  background-color: brown;
+.model-p {
+  display: none;
+}
+.model-p.hiddenContent {
+  display: block;
 }
 
 @media (min-width: 375px) and (max-width: 792px) {
@@ -88,6 +94,7 @@ li {
   }
   .model-pics {
     display: block;
+    width: auto;
   }
   .model-pics img {
     width: 100%;
@@ -98,5 +105,18 @@ li {
 @media (min-width: 496px) {
   .navBar li {
     margin-top: 40px;
+  }
+}
+
+@media (width: 799px) {
+  .model-pics img {
+    width: 100%;
+    height: auto;
+  }
+}
+@media (min-width: 1240px) {
+  .model-pics img {
+    height: 300px;
+    width: 300px;
   }
 }

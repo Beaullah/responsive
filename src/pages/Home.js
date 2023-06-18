@@ -14,6 +14,16 @@ const Home = () => {
   const Comments = {
     com: "She is beautiful",
   };
+  const revealContent = (event) => {
+    const clickedElement = event.currentTarget;
+    const hiddenContent = clickedElement.querySelector(".model-p");
+
+    if (hiddenContent.classList.contains("reveal-btn")) {
+      hiddenContent.classList.remove("reveal-btn");
+    } else {
+      hiddenContent.classList.add("reveal-btn");
+    }
+  };
   return (
     <div style={{ backgroundColor: "pink" }}>
       <h3 style={model}>Daily Models</h3>
@@ -45,9 +55,15 @@ const Home = () => {
         </div>
       </div>
       <div className="model-pics">
-        <div>
+        <div className="reveal-btn">
           {" "}
           <img src={Model2} />
+          <p className="model-p" onClick={revealContent}>
+            she hails from kumasi.{" "}
+          </p>
+        </div>
+        <div>
+          <img src={Model3} />
         </div>
         <div>
           <img src={Model3} />
@@ -56,6 +72,8 @@ const Home = () => {
           {" "}
           <img src={Model4} />
         </div>
+      </div>
+      <div className="model-pics">
         <div>
           <img src={Model5} />
         </div>
@@ -68,7 +86,7 @@ const Home = () => {
         </div>
         <div>
           {" "}
-          <img src={val} />
+          <img src={rat} />
         </div>
       </div>
     </div>
