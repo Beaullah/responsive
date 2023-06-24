@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import model1 from "./imgaes/model1.jpg";
 import Model2 from "./imgaes/Model2.jpg";
 import Model3 from "./imgaes/Model3.jpg";
@@ -8,22 +9,22 @@ import Model6 from "./imgaes/model6.jpg";
 import rat from "./imgaes/rat.jpg";
 import val from "./imgaes/val.jpg";
 const Home = () => {
+  const [message, setmessage] = useState(null);
+  const [print, setprint] = useState(false);
   const model = {
     textAlign: "Center",
   };
-  const Comments = {
-    com: "She is beautiful",
-  };
-  const revealContent = (event) => {
-    const clickedElement = event.currentTarget;
-    const hiddenContent = clickedElement.querySelector(".model-p");
 
-    if (hiddenContent.classList.contains("reveal-btn")) {
-      hiddenContent.classList.remove("reveal-btn");
-    } else {
-      hiddenContent.classList.add("reveal-btn");
-    }
+  const getData = (val) => {
+    setprint(false);
+    setmessage(val.target.value);
   };
+  function handleSubmit(event) {
+    event.preventDefault();
+    // Your code for handling the comment submission goes here
+    event.target.reset();
+  }
+
   return (
     <div style={{ backgroundColor: "pink" }}>
       <h3 style={model}>Daily Models</h3>
@@ -48,9 +49,10 @@ const Home = () => {
             is not only a woman of substance but also a true friend, always
             ready to offer support and encouragement to those in need.
           </p>
-          <form>
-            <input></input>
-            <button>Comment</button>
+          <form onSubmit={handleSubmit}>
+            <p> {print ? <h1>{message}</h1> : null}</p>
+            <input onChange={getData}></input>
+            <button onClick={() => setprint(true)}>Comment</button>
           </form>
         </div>
       </div>
@@ -58,35 +60,64 @@ const Home = () => {
         <div className="reveal-btn">
           {" "}
           <img src={Model2} />
-          <p className="model-p" onClick={revealContent}>
-            she hails from kumasi.{" "}
-          </p>
+          <div className="overlay">
+            <button id="click-me1">Click me</button>
+          </div>
+          <p className="model-p">she hails from kumasi. </p>
         </div>
-        <div>
+        <div className="reveal-btn">
           <img src={Model3} />
+          <div className="overlay">
+            <button id="click-me1">Click me</button>
+          </div>
+          <p className="model-p">she hails from kumasi. </p>
         </div>
-        <div>
+        <div className="reveal-btn">
           <img src={Model3} />
+          <div className="overlay">
+            <button id="click-me">Click me</button>
+          </div>
+          <p className="model-p">she hails from kumasi. </p>
         </div>
-        <div>
+        <div className="reveal-btn">
           {" "}
           <img src={Model4} />
+          <div className="overlay">
+            <button id="click-me">Click me</button>
+          </div>
+          <p className="model-p">she hails from kumasi. </p>
         </div>
       </div>
       <div className="model-pics">
-        <div>
+        <div className="reveal-btn">
           <img src={Model5} />
+          <div className="overlay">
+            <button id="click-me">Click me</button>
+          </div>
+          <p className="model-p">she hails from kumasi. </p>
         </div>
-        <div>
+        <div className="reveal-btn">
           <img src={Model6} />
+          <div className="overlay">
+            <button id="click-me">Click me</button>
+          </div>
+          <p className="model-p">she hails from kumasi. </p>
         </div>
-        <div>
+        <div className="reveal-btn">
           {" "}
           <img src={rat} />
+          <div className="overlay">
+            <button id="click-me">Click me</button>
+          </div>
+          <p className="model-p">she hails from kumasi. </p>
         </div>
-        <div>
+        <div className="reveal-btn">
           {" "}
           <img src={rat} />
+          <div className="overlay">
+            <button id="click-me">Click me</button>
+          </div>
+          <p className="model-p">she hails from kumasi. </p>
         </div>
       </div>
     </div>
