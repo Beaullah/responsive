@@ -9,21 +9,55 @@ import Model6 from "./imgaes/model6.jpg";
 import rat from "./imgaes/rat.jpg";
 import val from "./imgaes/val.jpg";
 const Home = () => {
-  const [message, setmessage] = useState(null);
-  const [print, setprint] = useState(false);
+  // const [message, setmessage] = useState(null);
+  // const [print, setprint] = useState(false);
   const model = {
     textAlign: "Center",
   };
+  const [comments, setComments] = useState([
+    { id: 1, content: "First comment" },
+    { id: 2, content: "Second comment" },
+    // Add more comments as needed
+  ]);
 
-  const getData = (val) => {
-    setprint(false);
-    setmessage(val.target.value);
+  const [editingCommentId, setEditingCommentId] = useState(null);
+  const [editedComment, setEditedComment] = useState("");
+  const [newComment, setNewComment] = useState("");
+
+  const handleEdit = (commentId, commentContent) => {
+    setEditingCommentId(commentId);
+    setEditedComment(commentContent);
   };
-  function handleSubmit(event) {
+
+  const handleUpdate = (commentId) => {
+    const updatedComments = comments.map((comment) => {
+      if (comment.id === commentId) {
+        return { ...comment, content: editedComment };
+      }
+      return comment;
+    });
+
+    setComments(updatedComments);
+    setEditingCommentId(null);
+    setEditedComment("");
+  };
+
+  const handleDelete = (commentId) => {
+    const filteredComments = comments.filter(
+      (comment) => comment.id !== commentId
+    );
+    setComments(filteredComments);
+  };
+
+  const handleCreate = (event) => {
     event.preventDefault();
-    // Your code for handling the comment submission goes here
-    event.target.reset();
-  }
+    const newCommentObj = {
+      id: Date.now(),
+      content: newComment,
+    };
+    setComments([...comments, newCommentObj]);
+    setNewComment("");
+  };
 
   return (
     <div style={{ backgroundColor: "pink" }}>
@@ -49,11 +83,48 @@ const Home = () => {
             is not only a woman of substance but also a true friend, always
             ready to offer support and encouragement to those in need.
           </p>
-          <form onSubmit={handleSubmit}>
-            <p> {print ? <h1>{message}</h1> : null}</p>
-            <input onChange={getData}></input>
-            <button onClick={() => setprint(true)}>Comment</button>
+          <form onSubmit={handleCreate}>
+            <input
+              type="text"
+              value={newComment}
+              onChange={(e) => setNewComment(e.target.value)}
+              placeholder="Enter a new comment"
+            />
+            <button type="submit">Add Comment</button>
           </form>
+
+          {comments.length > 0 ? (
+            comments.map((comment) => (
+              <div key={comment.id}>
+                {editingCommentId === comment.id ? (
+                  <>
+                    <input
+                      type="text"
+                      value={editedComment}
+                      onChange={(e) => setEditedComment(e.target.value)}
+                    />
+                    <button onClick={() => handleUpdate(comment.id)}>
+                      Update
+                    </button>
+                  </>
+                ) : (
+                  <>
+                    <p>{comment.content}</p>
+                    <button
+                      onClick={() => handleEdit(comment.id, comment.content)}
+                    >
+                      Edit
+                    </button>
+                    <button onClick={() => handleDelete(comment.id)}>
+                      Delete
+                    </button>
+                  </>
+                )}
+              </div>
+            ))
+          ) : (
+            <p>No comments available.</p>
+          )}
         </div>
       </div>
       <div className="model-pics">
