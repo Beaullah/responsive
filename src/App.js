@@ -1,10 +1,10 @@
-import logo from "./logo.svg";
 import "./App.css";
-import RouterU from "./RouterU";
+import RoutersU from "./RoutersU";
+
 function App() {
   return (
     <div>
-      <RouterU />
+      <RoutersU />
     </div>
   );
 }

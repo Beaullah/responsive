@@ -1,155 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
 }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
-.navBar {
+.Menu {
   display: flex;
-  margin-top: 30px;
+  margin: auto 0;
+  justify-content: center;
   justify-content: space-around;
 }
-li {
-  list-style-type: none;
-  display: inline;
-  text-decoration: none !important;
-  padding: 0 20px;
-}
-.lis {
-  text-decoration: none;
-  color: black;
-}
-.list {
-  text-decoration: none;
-}
-.post {
+.sub-menu {
   display: flex;
-  margin: 0 auto;
-  justify-content: center;
-  gap: 50px;
+  gap: 30;
 }
-.post-image {
-  height: 500px;
-}
-.post-input {
-  width: 300px;
-}
-.post-input p {
-  overflow: hidden;
-}
-.model-pics {
-  padding: 20px;
-  background-color: white;
+.subMenu {
   display: flex;
-  justify-content: space-around;
-  box-shadow: 50px;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: center;
-}
-.model-p {
-  display: none;
-}
-.model-pics img {
-  height: 400px;
-  width: 100%;
-  border-radius: 20px;
-}
-.reveal-btn {
-  position: relative;
-}
-/* .model-p {
-  display: none;
-}
-.model-p.hiddenContent {
-  display: block;
-} */
-.overlay {
-  position: absolute;
-  top: 0px;
-  left: 0;
-  width: 100%;
-  height: 98%;
-  background-color: rgb(5, 4, 4);
-  opacity: 0.5;
-  align-items: center;
-  justify-content: center;
-  border-radius: 20px;
-  opacity: 0;
-}
-.overlay button {
-  position: relative;
-  top: 100px;
-  left: 100px;
-  background-color: black;
-  color: white;
-  border: 2px solid white;
-  padding: 20px 20px;
-  border-radius: 10px;
-}
-.overlay:hover {
-  opacity: 0.6;
+  padding: 0px 6px;
 }
 
-@media (min-width: 375px) and (max-width: 792px) {
-  .navBar {
+.icons {
+  display: flex;
+  gap: 50;
+}
+.towel-background {
+  display: flex;
+}
+.towel-image {
+  border-radius: 100px;
+  width: 100%;
+}
+.towel-text {
+  padding-top: 50px;
+  padding-left: 30px;
+  background-color: pink;
+  width: 100%;
+  font-weight: bold;
+}
+.main .vector-icons {
+  display: flex;
+  justify-content: space-around;
+}
+@media (min-width: 375px) and (max-width: 535px) {
+  .Menu {
     display: block;
     text-align: center;
     justify-content: center;
   }
-  .logo {
-    text-align: center;
-    padding-top: 20px auto;
-  }
-
-  .post {
-    display: block;
-    margin: 0 auto;
+  .sub-menu {
     justify-content: center;
   }
-  .post img {
-    display: block;
-    margin: 0 auto;
-    justify-content: center;
-    width: auto;
-  }
-  .post-input {
-    margin: 0 auto;
+  .icons {
     justify-content: center;
   }
-  .model-pics {
+  .towel-background {
     display: block;
-    width: auto;
   }
-  .model-pics img {
+}
+@media (max-width: 1000px) {
+  .Menu {
     width: 100%;
-    height: auto;
   }
-}
-
-@media (min-width: 496px) {
-  .navBar li {
-    margin-top: 40px;
-  }
-}
-
-@media (width: 799px) {
-  .model-pics img {
-    width: 100%;
-    height: auto;
-  }
-}
-@media (min-width: 1240px) {
-  .model-pics img {
-    height: 300px;
-    width: 300px;
+  .towel-background {
+    display: block;
   }
 }
